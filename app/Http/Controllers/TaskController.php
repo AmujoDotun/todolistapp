@@ -13,7 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return "Hello there I'm just here to have the best of fun I can";
     }
 
     /**
