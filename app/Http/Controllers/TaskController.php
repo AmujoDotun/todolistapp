@@ -34,7 +34,11 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $this->validate($request, [
+                'name' => 'required|string|max:225|min:3',
+                'description' => 'required|string|max:10000|min:5',
+                'due_date' => 'required|date',
+            ]);
     }
 
     /**

@@ -7,14 +7,14 @@
     {{ Form::label('description', 'Task Description', ['class' => 'form-lable mt-3']) }}
     {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Task Description']) }}
 
-    {{ Form::label('date', 'Due Date', ['class' => 'form-lable mt-3']) }}
-    {{ Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+    {{ Form::label('due_date', 'Due Date', ['class' => 'form-lable mt-3']) }}
+    {{ Form::date('due_date', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
 
     <div class="row justify-content-center">
         <div class="col-sm-6">
-            <buttom class="btn btn-block btn-success" type="submit">
+            <button class="btn btn-block btn-success" type="submit">
                 Create Task
-            </buttom>
+            </button>
         </div>
     </div>
 
