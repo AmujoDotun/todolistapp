@@ -4,11 +4,11 @@
 
 @section('content')
 
-<div class="row justify-content-center mb-3">
-    <div class="col-sm-4">
-        <a href="{{route('task.create')}}" class="btn btn-block btn-success">Create Task</a>
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-4">
+            <a href="{{route('task.create')}}" class="btn btn-block btn-success">Create Task</a>
+        </div>
     </div>
-</div>
 
     @foreach($tasks as $task)
 
