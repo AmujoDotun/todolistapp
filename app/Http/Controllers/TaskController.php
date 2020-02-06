@@ -14,7 +14,13 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return "Hello there I'm just here to have the best of fun I can";
+        //fetch all tasks and paginate
+        $tasks = Task::paginate(5);
+
+        //return view and also past the fetch task to the index page
+        return view('tasks.index')->with('tasks',$tasks);
+        //same as the below
+        // return view('tasks.index')->withTask($tasks);
     }
 
     /**
