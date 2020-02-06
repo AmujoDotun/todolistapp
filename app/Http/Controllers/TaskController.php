@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Task;
 
 class TaskController extends Controller
 {
@@ -34,12 +35,31 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        //validate data
             $this->validate($request, [
                 'name' => 'required|string|max:225|min:3',
                 'description' => 'required|string|max:10000|min:5',
                 'due_date' => 'required|date',
             ]);
+
+            //Create New Task
+            $task = new Task;
+
+            //Assign Data from Our Request
+            $task->name = $request->name;
+            $task->description = $request->description;
+            $task->due_date = $request->due_date;
+
+            //Save The New Task
+            $task->save();
+
+            //Flash session message with success
+            Session::flash('success', 'Created Task Sucessfully');
+
+            //Return a redirect
+            return redirect()->route('tasks.create');
     }
+
 
     /**
      * Display the specified resource.
