@@ -15,7 +15,7 @@ class TaskController extends Controller
     public function index()
     {
         //fetch all tasks and paginate
-        $tasks = Task::paginate(5);
+        $tasks = Task::paginate(1);
 
         //return view and also past the fetch task to the index page
         return view('tasks.index')->with('tasks',$tasks);
