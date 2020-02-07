@@ -7,9 +7,12 @@
 <div class="row">
     <div class="col sm 12">
         <h1>Create Task</h1>
-        @component('components.taskForm')
+        {{ Form::open(['route' => 'task.store', 'method' => 'POST']) }}
 
-        @endcomponent
+            @component('components.taskForm')
+            @endcomponent
+
+        {{ Form::close() }}
     </div>
 </div>
 
