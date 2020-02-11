@@ -87,6 +87,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
+        $task->dueDateFormatting = false;
         
         return view('tasks.edit')->withTask($task);
     }
