@@ -6,15 +6,15 @@
 {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Task Description']) }}
 
 {{ Form::label('due_date', 'Due Date', ['class' => 'form-lable mt-3']) }}
-{{ Form::date('due_date', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+{{ Form::date('due_date', null, ['class' => 'form-control']) }}
 
 <div class="row justify-content-center">
     <div class="col-sm-4">
         <a href="{{ route('task.index')}}" class="btn btn-block btn-secondary">Go Back</a>
     </div>
     <div class="col-sm-4">
-        <button class="btn btn-block btn-success" type="submit">
-            Create Task
+        <button class="btn btn-block btn-primary" type="submit">
+            Save Task
         </button>
     </div>
 </div>

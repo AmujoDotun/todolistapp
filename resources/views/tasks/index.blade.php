@@ -25,6 +25,7 @@
                     {{ $task->description }}
                 </p>
                 <h4>{{ $task->due_date }}</h4>
+                <a href="{{route('task.edit', $task->id)}}" class="btn btn-sm btn-primary">Edit</a>
             </div>
         </div>
     @endforeach
