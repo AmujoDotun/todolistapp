@@ -7,10 +7,10 @@ use Carbon\Carbon;
 
 trait TasksTrait{
 
-    public $dueDateFormating = true;
+    public $dueDateFormatting = true;
 
     public function getDueDateAttribute($value){
-        if($this->dueDateFormating){
+        if($this->dueDateFormatting){
             return Carbon::parse($value)->toFormattedDateString();
         }else{
             return $this->attributes['due_date'] = $value;
