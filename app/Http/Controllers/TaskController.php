@@ -15,7 +15,7 @@ class TaskController extends Controller
     public function index()
     {
         //fetch all tasks and paginate
-        $tasks = Task::paginate(1);
+        $tasks = Task::paginate(5);
 
         //return view and also past the fetch task to the index page
         return view('tasks.index')->with('tasks',$tasks);
@@ -58,12 +58,13 @@ class TaskController extends Controller
 
             //Save The New Task
             $task->save();
-
+            
+            echo 'Task created successfully';
             //Flash session message with success
-            Session::flash('success', 'Created Task Sucessfully');
+            // Session::flash('success', 'Created Task Sucessfully');
 
             //Return a redirect
-            return redirect()->route('tasks.create');
+            return redirect()->route('tasks.index');
     }
 
 
@@ -101,7 +102,29 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validate data
+        $this->validate($request, [
+            'name' => 'required|string|max:225|min:3',
+            'description' => 'required|string|max:10000|min:5',
+            'due_date' => 'required|date',
+        ]);
+
+        //get task using id
+        $task = Task::find($id);
+
+        //Assign Data from Our Request
+        $task->name = $request->name;
+        $task->description = $request->description;
+        $task->due_date = $request->due_date;
+
+        //Save The New Task
+        $task->save();
+
+        //Flash session message with success
+        // Session::flash('success', 'Updated Task Sucessfully');
+
+        //Return a redirect
+        return redirect()->route('task.index');
     }
 
     /**
